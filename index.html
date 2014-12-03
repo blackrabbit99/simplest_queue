@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script type="text/javascript" src="./queue.js"></script>
+		<script>
+			var fn = function(next){
+				setTimeout(function(){
+					console.log(2);
+					next();	
+				}, 1000)
+			};
+
+			window.onload = function(){
+				/*var consequentiallyTaskRunner = queue.getConsequentiallyTaskRunner();
+
+				consequentiallyTaskRunner.addTask({
+					task: fn
+				});
+
+				consequentiallyTaskRunner.addTask({
+					task: fn
+				});
+
+				consequentiallyTaskRunner.addTask({
+					task: fn
+				});
+
+				consequentiallyTaskRunner.addTask({
+					task: fn
+				});*/
+
+				var poolTaskRunner = queue.getPoolTaskRunner();
+
+				poolTaskRunner.addTask({
+					task: fn
+				});
+
+				poolTaskRunner.addTask({
+					task: fn
+				});
+
+				poolTaskRunner.addTask({
+					task: fn
+				});
+
+				poolTaskRunner.addTask({
+					task: fn
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Queue</h1>
+	</body>
+</html>
